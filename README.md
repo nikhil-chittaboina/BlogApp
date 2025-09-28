@@ -44,9 +44,35 @@ To run this project on your local machine, follow these steps:
    ```bash
    npm install
    
-3. **Configure .env**
+3. **Configure `.env`:** Create a file named **`.env`** in the `backend/` folder and add your local MongoDB URI and port:
+
    ```bash
-  PORT=3000
+   PORT=3000
+   MONGODB_URI=mongodb://127.0.0.1:27017/blogapi
+4. **Start the server:** `node server.js`
+   (The console should confirm "Connected to MongoDB successfully!" and "Server running successfully on port 3000")
+
+### 2. Frontend Setup
+
+1. **Navigate to the `frontend/` directory:** `cd ../frontend`
+
+2. **Install dependencies:** `npm install`
+
+3. **Start the React development server:** `npm run dev`
+
+   The React client will open, and the `GET /posts` request will automatically connect to your local backend server at `http://localhost:3000/posts`.
+
+---
+
+## ☁️ Deployment Configuration
+
+This section details the environment variables required for cloud hosting (e.g., Render, Vercel).
+
+| Component | Variable | Purpose |
+| :--- | :--- | :--- |
+| **Backend** | `MONGODB_URI` | Stores the secret MongoDB Atlas connection string. |
+| | `PORT` | Set dynamically by the host (Render). |
+| **Frontend** | `REACT_APP_API_URL` | Stores the live public URL of the backend service (e.g., `https://blogapp-v10d.onrender.com/posts`). |  
  
    
    
