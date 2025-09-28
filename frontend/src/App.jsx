@@ -3,7 +3,7 @@ import { PlusCircle, Trash2, Loader, MessageSquare } from 'lucide-react';
 
 // --- API Configuration ---
 // The base URL for Express API running on port 3000
-const REACT_APP_API_URL =  process.env.API_URL;
+const REACT_APP_API_URL ="https://blogapp-v10d.onrender.com";
 
 // --- Application Component ---
 
