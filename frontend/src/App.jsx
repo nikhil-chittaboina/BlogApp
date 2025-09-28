@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { PlusCircle, Trash2, Loader, MessageSquare } from 'lucide-react';
 
 // --- API Configuration ---
-// The base URL for your Express API running on port 3000
-const API_URL = 'http://localhost:3000/posts'; 
+// The base URL for Express API running on port 3000
+const REACT_APP_API_URL =  process.env.API_URL;
 
 // --- Application Component ---
 
@@ -25,7 +25,7 @@ export default function App() {
     setLoading(true);
     setError(null);
     try {
-        const response = await fetch(API_URL);
+        const response = await fetch(REACT_APP_API_URL);
 
         if (!response.ok) {
             throw new Error(`Failed to fetch posts. Status: ${response.status}`);
@@ -62,7 +62,7 @@ export default function App() {
     };
     
     try {
-        const response = await fetch(API_URL, {
+        const response = await fetch(REACT_APP_API_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(postData),
@@ -95,7 +95,7 @@ export default function App() {
     if (!window.confirm("Are you sure you want to delete this post?")) return;
 
     try {
-        const response = await fetch(`${API_URL}/${id}`, {
+        const response = await fetch(`${REACT_APP_API_URL}/${id}`, {
             method: 'DELETE',
         });
 
